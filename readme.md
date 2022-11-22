@@ -10,6 +10,10 @@ Tetris-SDK: Efficient Convolution Layer Mapping with Adaptive Windows for Fast I
 ### Abstract
 Shifted-and-Duplicated-Kernel (SDK) mapping is gaining popularity as it substantially accelerates convolution layers in Compute-In-Memory (CIM) architectures compared to conventional image-to-column (im2col) mapping. However, the state-of-the-art SDK algorithm, i.e., Variable-Window SDK (VW-SDK) lacks adaptability, leading to in-sufficient memory utilization and extra processing cycles. In this work, we propose Tetris-SDK, an enhanced strategy integrating a marginal-space mapping to increase CIM array utilization, an adjustable input channel partition to improve adaptation, and a square-inclined window slicing to decrease overall computing cycles. Compared with im2col, SDK and VM-SDK, Tetris-SDK speeds up a variety of CNN layers by up to $78.4\times$, $8\times$, and $1.3\times$, respectively.
 
+
+### Flowchart
+![Tetris-SDK flowchart](flowchart.png)
+
 ## Getting Started
 
 ### Dependencies
@@ -32,6 +36,8 @@ cc_optimization_with_mo(image, kernel, ic, oc, ar, ac, pw_row, pw_col, pw_ic, pw
 
 ## Version History
 
+* 0.3
+    * Added flowchart
 * 0.2
     * Various bug fixes and optimizations
 * 0.1
