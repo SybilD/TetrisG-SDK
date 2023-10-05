@@ -35,7 +35,8 @@ cc_optimization_with_mo(image, kernel, ic, oc, ar, ac, pw_row, pw_col, pw_ic, pw
 
 
 ## Version History
-
+* 0.4
+    * Added Tetris_with_grouped_convolutions
 * 0.3
     * Added flowchart
 * 0.2
