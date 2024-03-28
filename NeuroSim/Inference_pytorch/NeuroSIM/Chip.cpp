@@ -132,14 +132,14 @@ vector<int> ChipDesignInitialize(InputParameter& inputParameter, Technology& tec
 		// 	} else {
 		// 		// small Cov layers and FC layers use conventional mapping\
 		// 		// markNM.push_back(0);
-		// 		// Ke
+		// 		// Tetris
 		// 		markNM.push_back(0);
 		// 		minCube = pow(2, ceil((double) log2((double) netStructure[i][5]*(double) numColPerSynapse) ) );
 		// 		*maxTileSizeCM = max(minCube, (*maxTileSizeCM));
 		// 	}
 		// }
 
-		// Ke
+		// Tetris
 		for (int i=0; i<numLayer; i++) {
 			if ((netStructure[i][3]*netStructure[i][4]== (*numPENM))
 				// large Cov layers use novel mapping
@@ -152,7 +152,7 @@ vector<int> ChipDesignInitialize(InputParameter& inputParameter, Technology& tec
 			} else {
 				// small Cov layers and FC layers use conventional mapping\
 				// markNM.push_back(0);
-				// Ke
+				// Tetris
 				markNM.push_back(0);
 				minCube = pow(2, ceil((double) log2((double) netStructure[i][5]*(double) numColPerSynapse) ) );
 				*maxTileSizeCM = max(minCube, (*maxTileSizeCM));
@@ -607,7 +607,7 @@ vector<double> ChipCalculateArea(InputParameter& inputParameter, Technology& tec
 	
 	if (param->novelMapping) {
 		areaNMTile = TileCalculateArea(numPENM, desiredPESizeNM, true, &NMheight, &NMwidth);
-		// Ke
+		// Tetris
 		// areaNMTile = TileCalculateArea(2, desiredPESizeNM, true, &NMheight, &NMwidth);
 		double NMTileArea = areaNMTile[0];
 		double NMTileAreaIC = areaNMTile[1];
@@ -754,7 +754,7 @@ double ChipCalculatePerformance(InputParameter& inputParameter, Technology& tech
 	newMemory = LoadInWeightData(newweightfile, numRowPerSynapse, numColPerSynapse, param->maxConductance, param->minConductance);
 
 
-	// Ke
+	// Tetris
 	// vector<vector<double> > inputVector;
 	// vector<vector<double> > newMemory;
 	// if (l==2){
@@ -1072,7 +1072,12 @@ double ChipCalculatePerformance(InputParameter& inputParameter, Technology& tech
 				// 					(int) netStructure[l][2]*numRowPerSynapse/numtileEachLayerRow, numPENM, (int) netStructure[l][2]*numRowPerSynapse);
 
 
-				// Ke
+				// Tetris
+				// If the layer is different, choose different l
+				// weightMatrixRow = num of rows occupied (window wid x window height x ict)
+				// weightMatrixCol = num of cols occupied (num of conv x oct x weight bit)
+				// numPENN = group
+				// numInVector = cc/group (cc per group)
 
 				if (l==2){
 					weightMatrixRow = 480;
@@ -1092,7 +1097,7 @@ double ChipCalculatePerformance(InputParameter& inputParameter, Technology& tech
 									(int) netStructure[l][2]*numRowPerSynapse/numtileEachLayerRow, numPENM, (int) netStructure[l][2]*numRowPerSynapse);
 				};
 
-				// Ke
+				// Tetris
 				if (l == 2){
 					cout << "ChipCalculatePerformance TETRIS: l " << l << endl;
 					numtileEachLayerRow = 1;
