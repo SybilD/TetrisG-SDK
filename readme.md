@@ -1,6 +1,6 @@
 # Project Title
 
-An example for Tetris-SDK mapping algorithm.
+An example for TetrisG-SDK mapping algorithm, with NeuroSim.
 
 ## Description
 
