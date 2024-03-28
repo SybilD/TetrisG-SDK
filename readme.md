@@ -5,11 +5,12 @@ An example for TetrisG-SDK mapping algorithm, with NeuroSim.
 ## Description
 
 ### Title
-Tetris-SDK: Efficient Convolution Layer Mapping with Adaptive Windows for Fast In Memory Computing
+TetrisG-SDK: Efficient Convolution Layer Mapping with Adaptive Windows for Fast In Memory Computing
+
+### Demonstration of TetrisG-SDK
 
 ### Abstract
-Shifted-and-Duplicated-Kernel (SDK) mapping is gaining popularity as it substantially accelerates convolution layers in Compute-In-Memory (CIM) architectures compared to conventional image-to-column (im2col) mapping. However, the state-of-the-art SDK algorithm, i.e., Variable-Window SDK (VW-SDK) lacks adaptability, leading to in-sufficient memory utilization and extra processing cycles. In this work, we propose Tetris-SDK, an enhanced strategy integrating a marginal-space mapping to increase CIM array utilization, an adjustable input channel partition to improve adaptation, and a square-inclined window slicing to decrease overall computing cycles. Compared with im2col, SDK and VM-SDK, Tetris-SDK speeds up a variety of CNN layers by up to $78.4\times$, $8\times$, and $1.3\times$, respectively.
-
+Shifted-and-Duplicated-Kernel (SDK) mapping is an emerging technique for accelerating convolutional layers in Compute-In-Memory (CIM) architectures. While state-of-the-art SDK variants have achieved decent mapping efficiency, optimizations are still desired to enhance CIM utilization and minimize computing cycles. We propose TetrisG-SDK, a novel framework that exploits adaptive windows to boost mapping performance. These windows can accommodate more input channels, increase array utilization at marginal space, and adjust window shapes for latency. The methodology also leverages grouped convolutions to further decrease computing cycles, and ensure near-lossless network accuracy. Moreover, TetrisG-SDK is the first framework to integrate a validated, system-level CIM hardware simulator for accurate performance and energy estimation from an application perspective. Our experiments show that Tetris-SDK can remarkably accelerate convolution layer mapping. Compared to VW-SDK, it achieves a speed-up of 12.5× for ResNet50 on ImageNet classification and an improvement of overall latency and energy efficiency by 8.3× and 3.1×, respectively. This shows that TetrisG-SDK is a promising solution to map and accelerate Convolutional Neural Networks in CIM hardware.
 
 ### Flowchart
 ![Tetris-SDK flowchart](flowchart.png)
@@ -22,12 +23,13 @@ Shifted-and-Duplicated-Kernel (SDK) mapping is gaining popularity as it substant
 
 ### Installing
 
-* Any IDE that can run Jupyter Notebook
+* For TetrisG-SDK: Any IDE that can run Jupyter Notebook
+* For NeuroSim: Ubuntu 20.04 gcc: v9.4.0 glibc: v2.31 NVIDIA Driver Version: 525.60.13 CUDA Version: 12.0 (Refer to DNN+NeuroSim V1.4 https://github.com/neurosim/DNN_NeuroSim_V1.4/tree/main for more support)
 
-### Executing program
+### Executing TetrisG program
 
 * Download the file and open it in IDE
-* Run cell by cell
+* Run cell by cell or call the main function
 
 ```
 cc_optimization_with_mo(image, kernel, ic, oc, ar, ac, pw_row, pw_col, pw_ic, pw_oc)
